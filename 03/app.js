@@ -6,6 +6,9 @@ const b = randomNumber(min, max);
 const c = randomNumber(min, max);
 
 console.log(a, b, c);
+let result
+
+// -------------------------------- 1. --------------------------------
 
 function getSum(a, b, c) {
     let x
@@ -45,6 +48,33 @@ function getSum(a, b, c) {
 }
 
 console.log(getSum(a, b, c))
+
+// ----------------------------- end of 1. ----------------------------
+
+// -------------------------------- 2. --------------------------------
+
+let number = prompt('Podaj liczbę:')
+
+numberX = parseInt(number)
+
+let task2 = function isEven() {
+    if (isNaN(numberX)) {
+        console.log('null')
+    } else {
+        result = (numberX % 2 === 0) ? true : false
+        console.log(result)
+    }
+}
+
+task2()
+
+// ----------------------------- end of 2. ----------------------------
+
+// -------------------------------- 3. --------------------------------
+
+
+
+// ----------------------------- end of 3. ----------------------------
 
 function randomNumber(min, max) {
     return Math.round((Math.random() * (max - min)) + min);
