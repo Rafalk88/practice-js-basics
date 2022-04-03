@@ -1,14 +1,20 @@
 let table = []
 
+const arr = createArray(1,100)
+console.log(arr)
+
+const largest = getLargest(arr)
+console.log(largest)
+
+const avg = getAvg(largest)
+console.log(avg)
+
 function createArray(min, max) {
     for (let i=0; i < 20; i++) {
         table[i] = Math.round((Math.random() * (max - min)) + min);
     }
     return table
 }
-
-const arr = createArray(1,100)
-console.log(arr)
 
 function getLargest(arr) {
     arr.sort(function(a, b) {
@@ -17,5 +23,10 @@ function getLargest(arr) {
     return arr.slice(0, 10)
 }
 
-const largest = getLargest(arr)
-console.log(largest)
+function getAvg(largest) {
+    let avg = 0
+    largest.forEach(function(num) {
+        avg += num
+    })
+    return (avg / largest.length)
+}
