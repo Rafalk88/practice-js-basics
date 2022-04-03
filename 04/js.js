@@ -9,3 +9,13 @@ function createArray(min, max) {
 
 const arr = createArray(1,100)
 console.log(arr)
+
+function getLargest(arr) {
+    arr.sort(function(a, b) {
+        return b - a
+    })
+    return arr.slice(0, 10)
+}
+
+const largest = getLargest(arr)
+console.log(largest)
