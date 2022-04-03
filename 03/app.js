@@ -1,19 +1,18 @@
 const min = 1;
 const max = 100;
+let result
 
 const a = randomNumber(min, max);
 const b = randomNumber(min, max);
 const c = randomNumber(min, max);
 
 console.log(a, b, c);
-let result
 
 // -------------------------------- 1. --------------------------------
 
 function getSum(a, b, c) {
     let x
     let y
-    let sum
     newA = parseInt(a)
     newB = parseInt(b)
     newC = parseInt(c)
@@ -25,7 +24,7 @@ function getSum(a, b, c) {
         } else {
             y = newC
         }
-        sum = x + y
+        result = x + y
     } else if (newB > newC) {
         x = newB
         if (newA > newC) {
@@ -33,7 +32,7 @@ function getSum(a, b, c) {
         } else {
             y = newC
         }
-        sum = x+ y
+        result = x + y
     } else {
         x = newC
         if (newA > newB) {
@@ -41,41 +40,52 @@ function getSum(a, b, c) {
         } else {
             y = newB
         }
-        sum = x + y
+        result = x + y
     }
-
-    return sum
+    return result
 }
-
-console.log(getSum(a, b, c))
 
 // ----------------------------- end of 1. ----------------------------
 
 // -------------------------------- 2. --------------------------------
 
-let number = prompt('Podaj liczbę:')
-
-numberX = parseInt(number)
-
-let task2 = function isEven() {
-    if (isNaN(numberX)) {
+const isEven = function() {
+    if (typeof sum !== 'number') {
         console.log('null')
     } else {
-        result = (numberX % 2 === 0) ? true : false
+        result = (sum % 2 === 0) ? true : false
         console.log(result)
     }
+    return result
 }
-
-task2()
 
 // ----------------------------- end of 2. ----------------------------
 
 // -------------------------------- 3. --------------------------------
 
-
+function showInfo (sum, even) {
+    switch(even) {
+        case 'null':
+            console.log(`Podany argument ${sum} nie jest liczbą`)
+            break
+        case true:
+            console.log(`Podany argument ${sum} jest parzysty`)
+            break
+        case false:
+            console.log(`Podany argument ${sum} jest nieparzysty`)
+            break
+        default:
+            console.log('Błędny wynik z funkcji drugiej!')
+    }
+}
 
 // ----------------------------- end of 3. ----------------------------
 
 function randomNumber(min, max) {
     return Math.round((Math.random() * (max - min)) + min);
 }
+
+const sum = getSum(a, b, c)
+const even = isEven(sum)
+
+showInfo(sum, even)
